@@ -7,14 +7,14 @@ const inputGroup = document.getElementById('input-group');
 const message = document.getElementById('message');
 
 // GENERO 5 NUMERI CASUALI NON UGUALI FRA DI LORO
-const min = 1;
-const max = 50;
+const minValue = 1;
+const maxValue = 50;
 const totalNumbers = 5;
 
 function generateRandomUniqueNumbers() {
     let uniqueNumbers = new Set();
     while (uniqueNumbers.size < totalNumbers) {
-        uniqueNumbers.add(Math.floor(Math.random() * (max - min + 1)) + min);
+        uniqueNumbers.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
     }
     return Array.from(uniqueNumbers);
 }
