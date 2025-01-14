@@ -24,9 +24,20 @@ function generateRandomUniqueNumbers() {
 const numbersHTML = generateRandomUniqueNumbers();
 numbersList.innerHTML = numbersHTML;
 
-// NASCONDO I NUMERI GENERATI DOPO 30 SECONDI E MOSTRO IL FORM
-setTimeout(function () {
-    numbersList.innerHTML = '';
-    answersForm.classList.remove('d-none');
-    answersForm.classList.add('d-block')
-}, 3000);
+// MOSTRO IL COUNTDOWN A PARTIRE DA SUBITO
+let countdownTime = 30;
+countdown.innerHTML = countdownTime;
+
+// INIZIO IL COUNTDOWN E ALLA FINE DI ESSO NASCONDO I NUMERI E MOSTRO IL FORM DI INPUT
+let countdownInterval = setInterval(function () {
+    countdownTime--;
+    countdown.innerHTML = countdownTime;
+
+    if (countdownTime < 0) {
+        clearInterval(countdownInterval);
+        numbersList.innerHTML = '';
+        answersForm.classList.remove('d-none');
+        answersForm.classList.add('d-block');
+        countdown.innerHTML = '';
+    }
+}, 1000);
