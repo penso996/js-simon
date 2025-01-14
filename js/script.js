@@ -25,7 +25,7 @@ const numbersHTML = generateRandomUniqueNumbers();
 numbersList.innerHTML = numbersHTML;
 
 // MOSTRO IL COUNTDOWN A PARTIRE DA SUBITO
-let countdownTime = 30;
+let countdownTime = 4;
 countdown.innerHTML = countdownTime;
 
 // INIZIO IL COUNTDOWN E ALLA FINE DI ESSO NASCONDO I NUMERI E MOSTRO IL FORM DI INPUT
@@ -41,3 +41,5 @@ let countdownInterval = setInterval(function () {
         countdown.innerHTML = '';
     }
 }, 1000);
+
+// LEGGO L'INPUT DEL FORM
