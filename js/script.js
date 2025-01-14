@@ -6,7 +6,7 @@ const answersForm = document.getElementById('answers-form');
 const inputGroup = document.getElementById('input-group');
 const message = document.getElementById('message');
 
-// GENERO 5 NUMERI CASUALI NON UGUALI FRA DI LORO
+// GENERO 5 NUMERI CASUALI NON UGUALI FRA DI LORO E LI SCRIVO NELL'HTML
 const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
@@ -23,3 +23,10 @@ function generateRandomUniqueNumbers() {
 
 const numbersHTML = generateRandomUniqueNumbers();
 numbersList.innerHTML = numbersHTML;
+
+// NASCONDO I NUMERI GENERATI DOPO 30 SECONDI E MOSTRO IL FORM
+setTimeout(function () {
+    numbersList.innerHTML = '';
+    answersForm.classList.remove('d-none');
+    answersForm.classList.add('d-block')
+}, 3000);
