@@ -16,5 +16,10 @@ function generateRandomUniqueNumbers() {
     while (uniqueNumbers.size < totalNumbers) {
         uniqueNumbers.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
     }
-    return Array.from(uniqueNumbers);
+    return Array.from(uniqueNumbers).map(function (number) {
+        return "<ul>" + number + "</ul>";
+    }).join('');
 }
+
+const numbersHTML = generateRandomUniqueNumbers();
+numbersList.innerHTML = numbersHTML;
