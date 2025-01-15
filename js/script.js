@@ -10,7 +10,7 @@ const message = document.getElementById('message');
 const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
-let generatedNumbers = [];
+const generatedNumbers = [];
 
 function generateRandomUniqueNumbers() {
     let uniqueNumbers = new Set();
@@ -45,7 +45,7 @@ let countdownInterval = setInterval(function () {
 }, 1000);
 
 // LEGGO L'INPUT DEL FORM
-let userNumbers = [];
+const userNumbers = [];
 
 answersForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -88,8 +88,7 @@ function compareNumbers() {
         message.textContent = "Hai indovinato un numero!";
         message.classList.add('text-success');
         message.classList.remove('text-danger');
-    }
-    
+    }    
     else {
         message.textContent = "Non hai indovinato nessun numero!";
     }
