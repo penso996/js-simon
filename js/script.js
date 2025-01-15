@@ -45,11 +45,29 @@ let countdownInterval = setInterval(function () {
 }, 1000);
 
 // LEGGO L'INPUT DEL FORM
-let userNumbers =[];
+let userNumbers = [];
 answersForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const inputs = document.querySelectorAll('#input-group input');
     for (let i = 0; i < inputs.length; i++) {
         userNumbers.push(Number(inputs[i].value));
     }
+    compareNumbers();
 });
+
+// CONFRONTO I NUMERI GENERATI CON I NUMERI INSERITI
+function compareNumbers() {
+    let correctCount = 0;
+
+    for (let i = 0; i < generatedNumbers.length; i++) {
+        if (userNumbers.includes(generatedNumbers[i])) {
+            correctCount++;
+        }
+    }
+
+    if (correctCount > 0) {
+        message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
+    } else {
+        message.textContent = "Non hai indovinato nessun numero!";
+    }
+}
