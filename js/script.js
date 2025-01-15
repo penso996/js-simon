@@ -45,7 +45,7 @@ let countdownInterval = setInterval(function () {
 }, 1000);
 
 // LEGGO L'INPUT DEL FORM
-const userNumbers = [];
+let userNumbers = [];
 
 answersForm.addEventListener('submit', function (event) {
     event.preventDefault();
