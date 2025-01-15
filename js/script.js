@@ -46,13 +46,28 @@ let countdownInterval = setInterval(function () {
 
 // LEGGO L'INPUT DEL FORM
 let userNumbers = [];
+
 answersForm.addEventListener('submit', function (event) {
     event.preventDefault();
+    userNumbers = [];
+
     const inputs = document.querySelectorAll('#input-group input');
+    let hasDuplicates = false;
+
     for (let i = 0; i < inputs.length; i++) {
-        userNumbers.push(Number(inputs[i].value));
+        let number = Number(inputs[i].value);
+        if (userNumbers.includes(number)) {
+            hasDuplicates = true;
+        }
+        userNumbers.push(number);
+        inputs[i].value = '';
     }
-    compareNumbers();
+
+    if (hasDuplicates) {
+        message.textContent = "Hai inserito numeri duplicati! Riprova.";
+    } else {
+        compareNumbers();
+    }
 });
 
 // CONFRONTO I NUMERI GENERATI CON I NUMERI INSERITI
