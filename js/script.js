@@ -67,6 +67,8 @@ function compareNumbers() {
 
     if (correctCount > 0) {
         message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
+        message.classList.add('text-success');
+        message.classList.remove('text-danger');
     } else {
         message.textContent = "Non hai indovinato nessun numero!";
     }
