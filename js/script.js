@@ -45,9 +45,11 @@ let countdownInterval = setInterval(function () {
 }, 1000);
 
 // LEGGO L'INPUT DEL FORM
-const userNumbers = [];
+let userNumbers =[];
 answersForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const inputs = document.querySelectorAll('#input-group input');
-    const userNumbers = Array.from(inputs).map(input => +input.value);
+    for (let i = 0; i < inputs.length; i++) {
+        userNumbers.push(Number(inputs[i].value));
+    }
 });
