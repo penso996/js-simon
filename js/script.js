@@ -10,7 +10,7 @@ const message = document.getElementById('message');
 const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
-const generatedNumbers = [];
+let generatedNumbers = [];
 
 function generateRandomUniqueNumbers() {
     let uniqueNumbers = new Set();
