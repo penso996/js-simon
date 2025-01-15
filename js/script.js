@@ -10,13 +10,15 @@ const message = document.getElementById('message');
 const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
+let generatedNumbers = [];
 
 function generateRandomUniqueNumbers() {
     let uniqueNumbers = new Set();
     while (uniqueNumbers.size < totalNumbers) {
         uniqueNumbers.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
     }
-    return Array.from(uniqueNumbers).map(function (number) {
+    generatedNumbers = Array.from(uniqueNumbers);
+    return generatedNumbers.map(function (number) {
         return "<ul>" + number + "</ul>";
     }).join('');
 }
@@ -43,3 +45,9 @@ let countdownInterval = setInterval(function () {
 }, 1000);
 
 // LEGGO L'INPUT DEL FORM
+const userNumbers = [];
+answersForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const inputs = document.querySelectorAll('#input-group input');
+    const userNumbers = Array.from(inputs).map(input => +input.value);
+});
