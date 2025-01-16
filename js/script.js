@@ -68,7 +68,6 @@ answersForm.addEventListener("submit", function (event) {
         } else {
             userNumbers.push(number);
         }
-        inputs[i].value = "";
     }
 
     if (hasDuplicates) {
