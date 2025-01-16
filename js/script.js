@@ -62,7 +62,7 @@ answersForm.addEventListener("submit", function (event) {
     let hasDuplicates = false;
 
     for (let i = 0; i < inputs.length; i++) {
-        let number = Number(inputs[i].value);
+        const number = Number(inputs[i].value);
         if (userNumbers.includes(number)) {
             hasDuplicates = true;
         } else {
