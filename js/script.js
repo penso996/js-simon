@@ -7,10 +7,10 @@ const inputGroup = document.getElementById("input-group");
 const message = document.getElementById("message");
 
 // FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI DATI DEI PARAMETRI CHE RITORNA UN ARRAY
-function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
+function generateRandomUniqueNumbers(min, max, total) {
     let numbersSet = new Set();
-    while (numbersSet.size < totalNumbers) {
-        numbersSet.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
+    while (numbersSet.size < total) {
+        numbersSet.add(Math.floor(Math.random() * (max - min + 1)) + min);
     }
     return Array.from(numbersSet);
 }
