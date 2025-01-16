@@ -8,11 +8,11 @@ const message = document.getElementById('message');
 
 // GENERO 5 NUMERI CASUALI NON UGUALI FRA DI LORO E LI SALVO IN UN ARRAY
 function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
-    let uniqueNumbers = new Set();
-    while (uniqueNumbers.size < totalNumbers) {
-        uniqueNumbers.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
+    let numbersSet = new Set();
+    while (numbersSet.size < totalNumbers) {
+        numbersSet.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
     }
-    return Array.from(uniqueNumbers);
+    return Array.from(numbersSet);
 }
 
 const minValue = 1;
