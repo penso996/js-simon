@@ -6,7 +6,7 @@ const answersForm = document.getElementById('answers-form');
 const inputGroup = document.getElementById('input-group');
 const message = document.getElementById('message');
 
-// FUNZIONE PER GENERARE 5 NUMERI CASUALI NON UGUALI FRA DI LORO E SALVARLI IN UN ARRAY
+// FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI E TRASFORMARLO IN ARRAY
 function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
     let numbersSet = new Set();
     while (numbersSet.size < totalNumbers) {
@@ -15,12 +15,12 @@ function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
     return Array.from(numbersSet);
 }
 
-// valori decisi per la generazione di numeri
+// valori decisi per la generazione di numeri casuali diversi fra di loro
 const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
 
-77
+// chiamo la funzione e la salvo in una costante
 const generatedNumbers = generateRandomUniqueNumbers(minValue, maxValue, totalNumbers);
 
 // SCRIVO I NUMERI SALVATI NELL'ARRAY NELL'HTML
