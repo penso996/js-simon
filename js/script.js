@@ -1,10 +1,10 @@
 // PRENDO I DATI DAL DOM
-const countdown = document.getElementById('countdown');
-const instructions = document.getElementById('instructions');
-const numbersList = document.getElementById('numbers-list');
-const answersForm = document.getElementById('answers-form');
-const inputGroup = document.getElementById('input-group');
-const message = document.getElementById('message');
+const countdown = document.getElementById("countdown");
+const instructions = document.getElementById("instructions");
+const numbersList = document.getElementById("numbers-list");
+const answersForm = document.getElementById("answers-form");
+const inputGroup = document.getElementById("input-group");
+const message = document.getElementById("message");
 
 // FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI E TRASFORMARLO IN ARRAY
 function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
@@ -44,21 +44,21 @@ let countdownInterval = setInterval(function () {
 
     if (countdownTime < 0) {
         clearInterval(countdownInterval);
-        numbersList.innerHTML = '';
-        answersForm.classList.remove('d-none');
-        answersForm.classList.add('d-block');
-        countdown.innerHTML = '';
+        numbersList.innerHTML = "";
+        answersForm.classList.remove("d-none");
+        answersForm.classList.add("d-block");
+        countdown.innerHTML = "";
     }
 }, 1000);
 
 // LEGGO L'INPUT DEL FORM
 let userNumbers = [];
 
-answersForm.addEventListener('submit', function (event) {
+answersForm.addEventListener("submit", function (event) {
     event.preventDefault();
     userNumbers = [];
 
-    const inputs = document.querySelectorAll('#input-group input');
+    const inputs = document.querySelectorAll("#input-group input");
     let hasDuplicates = false;
 
     for (let i = 0; i < inputs.length; i++) {
@@ -67,7 +67,7 @@ answersForm.addEventListener('submit', function (event) {
             hasDuplicates = true;
         }
         userNumbers.push(number);
-        inputs[i].value = '';
+        inputs[i].value = "";
     }
 
     if (hasDuplicates) {
@@ -89,12 +89,12 @@ function compareNumbers() {
 
     if (correctCount > 1) {
         message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
-        message.classList.add('text-success');
-        message.classList.remove('text-danger');
+        message.classList.add("text-success");
+        message.classList.remove("text-danger");
     } else if (correctCount == 1) {
         message.textContent = "Hai indovinato un numero!";
-        message.classList.add('text-success');
-        message.classList.remove('text-danger');
+        message.classList.add("text-success");
+        message.classList.remove("text-danger");
     }
     else {
         message.textContent = "Non hai indovinato nessun numero!";
