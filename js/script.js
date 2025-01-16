@@ -6,7 +6,7 @@ const answersForm = document.getElementById("answers-form");
 const inputGroup = document.getElementById("input-group");
 const message = document.getElementById("message");
 
-// FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI E TRASFORMARLO IN ARRAY
+// FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI DATI DEI PARAMETRI E TRASFORMARLO IN ARRAY
 function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
     let numbersSet = new Set();
     while (numbersSet.size < totalNumbers) {
@@ -23,7 +23,7 @@ const totalNumbers = 5;
 // chiamo la funzione e la salvo in una costante
 const generatedNumbers = generateRandomUniqueNumbers(minValue, maxValue, totalNumbers);
 
-// FUNZIONE PER SCRIVERE I VALORI DELL'ARRAY IN UN ELEMENTO HTML <li>
+// FUNZIONE PER SCRIVERE I VALORI DI UN ARRAY IN UN ELEMENTO HTML <li>
 function numbersHTML(numbersArray) {
     return numbersArray.map(function (number) {
         return "<li>" + number + "</li>";
@@ -51,7 +51,7 @@ let countdownInterval = setInterval(function () {
     }
 }, 1000);
 
-// LEGGO L'INPUT DEL FORM E LO VALIDO
+// LEGGO L'INPUT DEL FORM E LO VALIDO PER POI PASSARE AL CONFRONTO
 let userNumbers = [];
 
 answersForm.addEventListener("submit", function (event) {
@@ -77,60 +77,25 @@ answersForm.addEventListener("submit", function (event) {
     }
 });
 
-// FUNZIONE PER CONFRONTARE I NUMERI DI DUE ARRAY
-function correctNumbersCounter(generatedNumbers, userNumbers) {
+// FUNZIONE GENERATA ADHOC PER CONFRONTARE I NUMERI E SCRIVERE UN MESSAGGIO NELL'HTML
+function compareNumbers(generatedNumbers, userNumbers) {
     let correctCount = 0;
+
     for (let i = 0; i < generatedNumbers.length; i++) {
         if (userNumbers.includes(generatedNumbers[i])) {
             correctCount++;
         }
     }
-    return correctCount;
-}
-
-// chiamo la funzione e la salvo in una costante
-const correctCount = correctNumbersCounter(generatedNumbers, userNumbers);
-
-// USO LA FUNZIONE PER SCRIVERE NELL'INDEX UN MESSAGGIO PERSONALIZZATO
-
-function compareNumbers(generatedNumbers, userNumbers) {
-    const correctCount = countCorrectNumbers(generatedNumbers, userNumbers);
 
     if (correctCount > 1) {
         message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
         message.classList.add("text-success");
         message.classList.remove("text-danger");
-    } else if (correctCount == 1) {
+    } else if (correctCount === 1) {
         message.textContent = "Hai indovinato un numero!";
         message.classList.add("text-success");
         message.classList.remove("text-danger");
     } else {
-        message.textContent = "Non hai indovinato nessun numero!";
-        message.classList.remove("text-success");
-        message.classList.add("text-danger");
-    }
-}
-
-
-function compareNumbers() {
-    let correctCount = 0;
-
-    for (let i = 0; i < generatedNumbers.length; i++) {
-        if (userNumbers.includes(generatedNumbers[i])) {
-            correctCount++;
-        }
-    }
-
-    if (correctCount > 1) {
-        message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
-        message.classList.add("text-success");
-        message.classList.remove("text-danger");
-    } else if (correctCount == 1) {
-        message.textContent = "Hai indovinato un numero!";
-        message.classList.add("text-success");
-        message.classList.remove("text-danger");
-    }
-    else {
         message.textContent = "Non hai indovinato nessun numero!";
     }
 }
