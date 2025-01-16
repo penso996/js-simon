@@ -78,11 +78,11 @@ answersForm.addEventListener("submit", function (event) {
 });
 
 // FUNZIONE GENERATA ADHOC PER CONFRONTARE I NUMERI E SCRIVERE UN MESSAGGIO NELL'HTML
-function compareNumbers(generatedNumbers, userNumbers) {
+function compareNumbers(array1, array2) {
     let correctCount = 0;
 
-    for (let i = 0; i < generatedNumbers.length; i++) {
-        if (userNumbers.includes(generatedNumbers[i])) {
+    for (let i = 0; i < array1.length; i++) {
+        if (array2.includes(array1[i])) {
             correctCount++;
         }
     }
