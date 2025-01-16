@@ -44,10 +44,10 @@ let countdownInterval = setInterval(function () {
 
     if (countdownTime < 0) {
         clearInterval(countdownInterval);
+        countdown.innerHTML = "";
         numbersList.innerHTML = "";
         answersForm.classList.remove("d-none");
         answersForm.classList.add("d-block");
-        countdown.innerHTML = "";
     }
 }, 1000);
 
