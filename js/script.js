@@ -87,12 +87,13 @@ function compareNumbers(array1, array2) {
         }
     }
 
-    if (correctCount > 1) {
-        message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
+    if (correctCount === 1) {
+        message.textContent = "Hai indovinato un numero!";
         message.classList.add("text-success");
         message.classList.remove("text-danger");
-    } else if (correctCount === 1) {
-        message.textContent = "Hai indovinato un numero!";
+    }
+    else if (correctCount > 1) {
+        message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
         message.classList.add("text-success");
         message.classList.remove("text-danger");
     } else {
