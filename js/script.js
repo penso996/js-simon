@@ -77,7 +77,41 @@ answersForm.addEventListener("submit", function (event) {
     }
 });
 
-// CONFRONTO I NUMERI GENERATI CON I NUMERI INSERITI
+// FUNZIONE PER CONFRONTARE I NUMERI DI DUE ARRAY
+function correctNumbersCounter(generatedNumbers, userNumbers) {
+    let correctCount = 0;
+    for (let i = 0; i < generatedNumbers.length; i++) {
+        if (userNumbers.includes(generatedNumbers[i])) {
+            correctCount++;
+        }
+    }
+    return correctCount;
+}
+
+// chiamo la funzione e la salvo in una costante
+const correctCount = correctNumbersCounter(generatedNumbers, userNumbers);
+
+// USO LA FUNZIONE PER SCRIVERE NELL'INDEX UN MESSAGGIO PERSONALIZZATO
+
+function compareNumbers(generatedNumbers, userNumbers) {
+    const correctCount = countCorrectNumbers(generatedNumbers, userNumbers);
+
+    if (correctCount > 1) {
+        message.textContent = "Hai indovinato " + correctCount + " numeri corretti!";
+        message.classList.add("text-success");
+        message.classList.remove("text-danger");
+    } else if (correctCount == 1) {
+        message.textContent = "Hai indovinato un numero!";
+        message.classList.add("text-success");
+        message.classList.remove("text-danger");
+    } else {
+        message.textContent = "Non hai indovinato nessun numero!";
+        message.classList.remove("text-success");
+        message.classList.add("text-danger");
+    }
+}
+
+
 function compareNumbers() {
     let correctCount = 0;
 
