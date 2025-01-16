@@ -51,7 +51,7 @@ let countdownInterval = setInterval(function () {
     }
 }, 1000);
 
-// LEGGO L'INPUT DEL FORM
+// LEGGO L'INPUT DEL FORM E LO VALIDO
 let userNumbers = [];
 
 answersForm.addEventListener("submit", function (event) {
@@ -65,8 +65,9 @@ answersForm.addEventListener("submit", function (event) {
         let number = Number(inputs[i].value);
         if (userNumbers.includes(number)) {
             hasDuplicates = true;
+        } else {
+            userNumbers.push(number);
         }
-        userNumbers.push(number);
         inputs[i].value = "";
     }
 
