@@ -6,21 +6,26 @@ const answersForm = document.getElementById('answers-form');
 const inputGroup = document.getElementById('input-group');
 const message = document.getElementById('message');
 
-// GENERO 5 NUMERI CASUALI NON UGUALI FRA DI LORO E LI SCRIVO NELL'HTML
-const minValue = 1;
-const maxValue = 50;
-const totalNumbers = 5;
-let generatedNumbers = [];
-
-function generateRandomUniqueNumbers() {
+// GENERO 5 NUMERI CASUALI NON UGUALI FRA DI LORO E LI SALVO IN UN ARRAY
+function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
     let uniqueNumbers = new Set();
     while (uniqueNumbers.size < totalNumbers) {
         uniqueNumbers.add(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
     }
-    generatedNumbers = Array.from(uniqueNumbers);
-    return generatedNumbers.map(function (number) {
-        return "<ul>" + number + "</ul>";
-    }).join('');
+    return Array.from(uniqueNumbers);
+}
+
+const minValue = 1;
+const maxValue = 50;
+const totalNumbers = 5;
+
+const generatedNumbers = generateRandomUniqueNumbers(minValue, maxValue, totalNumbers);
+
+// SCRIVO I NUMERI SALVATI NELL'ARRAY NELL'HTML
+generatedNumbers = Array.from(uniqueNumbers);
+return generatedNumbers.map(function (number) {
+    return "<ul>" + number + "</ul>";
+}).join('');
 }
 
 const numbersHTML = generateRandomUniqueNumbers();
@@ -88,7 +93,7 @@ function compareNumbers() {
         message.textContent = "Hai indovinato un numero!";
         message.classList.add('text-success');
         message.classList.remove('text-danger');
-    }    
+    }
     else {
         message.textContent = "Non hai indovinato nessun numero!";
     }
