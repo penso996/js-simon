@@ -24,14 +24,14 @@ const totalNumbers = 5;
 const generatedNumbers = generateRandomUniqueNumbers(minValue, maxValue, totalNumbers);
 
 // FUNZIONE PER SCRIVERE I VALORI DI UN ARRAY IN UN ELEMENTO HTML <li>
-function numbersHTML(numbersArray) {
-    return numbersArray.map(function (number) {
+function generateNumbersListHTML(array) {
+    return array.map(function (number) {
         return "<li>" + number + "</li>";
     }).join("");
 }
 
 // chiamo la funzione e scrivo nell'index
-numbersList.innerHTML = numbersHTML(generatedNumbers);
+numbersList.innerHTML = generateNumbersListHTML(generatedNumbers);
 
 // MOSTRO IL COUNTDOWN A PARTIRE DA SUBITO
 let countdownTime = 30;
@@ -73,7 +73,7 @@ answersForm.addEventListener("submit", function (event) {
     if (hasDuplicates) {
         message.textContent = "Hai inserito numeri duplicati! Riprova.";
     } else {
-        compareNumbers();
+        compareNumbers(generatedNumbers, userNumbers);
     }
 });
 
