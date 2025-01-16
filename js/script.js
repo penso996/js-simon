@@ -23,15 +23,15 @@ const totalNumbers = 5;
 // chiamo la funzione e la salvo in una costante
 const generatedNumbers = generateRandomUniqueNumbers(minValue, maxValue, totalNumbers);
 
-// SCRIVO I NUMERI SALVATI NELL'ARRAY NELL'HTML
-generatedNumbers = Array.from(uniqueNumbers);
-return generatedNumbers.map(function (number) {
-    return "<ul>" + number + "</ul>";
-}).join('');
+// FUNZIONE PER SCRIVERE I VALORI DELL'ARRAY IN UN ELEMENTO HTML <li>
+function numbersHTML(numbersArray) {
+    return numbersArray.map(function (number) {
+        return "<li>" + number + "</li>";
+    }).join("");
 }
 
-const numbersHTML = generateRandomUniqueNumbers();
-numbersList.innerHTML = numbersHTML;
+// chiamo la funzione e scrivo nell'index
+numbersList.innerHTML = numbersHTML(generatedNumbers);
 
 // MOSTRO IL COUNTDOWN A PARTIRE DA SUBITO
 let countdownTime = 30;
