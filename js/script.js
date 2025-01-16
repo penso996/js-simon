@@ -37,7 +37,7 @@ numbersList.innerHTML = generateNumbersListHTML(generatedNumbers);
 let countdownTime = 30;
 countdown.innerHTML = countdownTime;
 
-// INIZIO IL COUNTDOWN E ALLA FINE DI ESSO NASCONDO I NUMERI E MOSTRO IL FORM DI INPUT
+// inizio il countdown e alla fine di esso nascondo i numeri e mostro il form di input
 let countdownInterval = setInterval(function () {
     countdownTime--;
     countdown.innerHTML = countdownTime;
