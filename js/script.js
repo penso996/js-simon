@@ -6,7 +6,7 @@ const answersForm = document.getElementById("answers-form");
 const inputGroup = document.getElementById("input-group");
 const message = document.getElementById("message");
 
-// FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI DATI DEI PARAMETRI E TRASFORMARLO IN ARRAY
+// FUNZIONE PER GENERARE UN SET DI NUMERI CASUALI DATI DEI PARAMETRI CHE RITORNA UN ARRAY
 function generateRandomUniqueNumbers(minValue, maxValue, totalNumbers) {
     let numbersSet = new Set();
     while (numbersSet.size < totalNumbers) {
@@ -20,7 +20,7 @@ const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
 
-// chiamo la funzione e la salvo in una costante
+// chiamo la funzione e la salvo in una costante (ottengo così il primo array di confronto)
 const generatedNumbers = generateRandomUniqueNumbers(minValue, maxValue, totalNumbers);
 
 // FUNZIONE PER SCRIVERE I VALORI DI UN ARRAY IN UN ELEMENTO HTML <li>
@@ -30,7 +30,7 @@ function generateNumbersListHTML(array) {
     }).join("");
 }
 
-// chiamo la funzione e scrivo nell'index
+// chiamo la funzione e scrivo nell'html
 numbersList.innerHTML = generateNumbersListHTML(generatedNumbers);
 
 // MOSTRO IL COUNTDOWN A PARTIRE DA SUBITO
@@ -77,7 +77,7 @@ answersForm.addEventListener("submit", function (event) {
     }
 });
 
-// FUNZIONE GENERATA ADHOC PER CONFRONTARE I NUMERI E SCRIVERE UN MESSAGGIO NELL'HTML
+// FUNZIONE GENERATA ADHOC PER CONFRONTARE I DUE ARRAY E SCRIVERE UN MESSAGGIO NELL'HTML
 function compareNumbers(array1, array2) {
     let correctCount = 0;
 
