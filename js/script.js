@@ -15,7 +15,7 @@ function generateRandomUniqueNumbers(min, max, total) {
     return Array.from(numbersSet);
 }
 
-// valori decisi per la generazione di numeri casuali diversi fra di loro
+// parametri decisi per la generazione di numeri casuali diversi fra di loro
 const minValue = 1;
 const maxValue = 50;
 const totalNumbers = 5;
