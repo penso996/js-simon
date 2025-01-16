@@ -30,7 +30,7 @@ function generateNumbersListHTML(array) {
     }).join("");
 }
 
-// chiamo la funzione e scrivo nell'html
+// chiamo la funzione, gli do in pasto il primo array di confronto e lo scrivo nell'html
 numbersList.innerHTML = generateNumbersListHTML(generatedNumbers);
 
 // MOSTRO IL COUNTDOWN A PARTIRE DA SUBITO
